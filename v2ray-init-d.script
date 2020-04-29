@@ -1,0 +1,23 @@
+#!/bin/sh /etc/rc.common
+
+START=95
+STOP=15
+
+SERVICE_DAEMONIZE=1
+NAME=v2ray
+
+start() {
+    # code to start app comes here 
+    /usr/bin/v2ray/v2ray -config /usr/bin/v2ray/config.json >/dev/null 2>&1 &
+    sh /usr/bin/v2ray/iptables.sh start
+    echo 'v2ray started'
+    # example: daemon program_name &
+}
+
+stop() {
+    # code to stop app comes here 
+    # example: killproc program_name
+    killall -q -9 v2ray
+    sh /usr/bin/v2ray/iptables.sh stop
+}
+
