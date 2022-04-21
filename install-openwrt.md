@@ -8,6 +8,13 @@ The system can be reset(factory reset),all chagnes lost
 2. ext4
 The predifined partions can be changed, so you can enlarege the last partions to add more spaces. 
 
+when to flash the img to the router, first there must be another bootable system attched to the router, so creating a bootable usb would be an option. usually a linux distribution system would be good, it can provider many very powerfull commands. such as partition tools. also using openwrt system is also an option. 
+steps:
+1. Create a bootable device installed with linux server edition/openwrt.
+2. copy the opernwrt to the bootable device
+3. using `dd` command to write the img to the target router partition(/dev/sda)
+4. optional, using partion command to create partition in the router
+
 # format device using f2fs/ext4 file system 
     mkfs.f2fs /dev/sdb
 for the new parttions, it needs to be formated.
